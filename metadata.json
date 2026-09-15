@@ -1,0 +1,7 @@
+{
+  "name": "Earn King ♔",
+  "description": "Earn King ♔ - Watch ads and earn coins with instant App Open Ads, rewarded video rewards, daily login bonuses, and secure Firebase authentication.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

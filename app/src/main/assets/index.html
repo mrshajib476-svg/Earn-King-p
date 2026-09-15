@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Earn King ♔</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="app-container">
+
+    <!-- ==========================================
+         PAGE 1: HOME
+         ========================================== -->
+    <div id="page-home" class="page active">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="profile-pill" id="header-profile-pill" style="cursor: pointer;">
+          <div class="avatar-img" id="header-avatar">EK</div>
+          <div class="user-meta">
+            <span class="user-name" id="header-user-name">Earn King ♔</span>
+            <span class="user-level-badge" id="header-user-status">★ Guest (Tap to Login)</span>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="icon-btn" id="header-auth-btn" title="Authentication" style="background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.4); color: #F59E0B;">
+            <span id="header-auth-icon">🔑</span>
+          </button>
+          <button class="icon-btn" title="Daily Streak">
+            <span>🔥</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Daily Login Bonus Card (Home Page) -->
+      <div id="home-daily-bonus-card" class="daily-login-bonus-card">
+        <div class="daily-bonus-left">
+          <div class="daily-bonus-icon">👑</div>
+          <div>
+            <div class="daily-bonus-title">Daily Login Bonus</div>
+            <div class="daily-bonus-sub" id="home-daily-bonus-sub">Claim your free +50 Coins today!</div>
+          </div>
+        </div>
+        <button id="btn-claim-daily-home" class="btn-claim-bonus">Claim +50</button>
+      </div>
+
+      <!-- Total Balance Hero Card -->
+      <div class="balance-hero-card">
+        <div class="balance-hero-top">
+          <span class="balance-title">Total Balance</span>
+          <span class="conversion-pill">1,000 Coins = $1.00</span>
+        </div>
+        <div class="balance-amount-row">
+          <svg class="coin-icon-large" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="22" fill="url(#goldGrad)" stroke="#FBBF24" stroke-width="2"/>
+            <circle cx="24" cy="24" r="17" stroke="#D97706" stroke-width="1.5" stroke-dasharray="3 3"/>
+            <text x="24" y="30" font-size="18" font-weight="900" fill="#78350F" text-anchor="middle" font-family="sans-serif">♔</text>
+            <defs>
+              <linearGradient id="goldGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#FDE68A"/>
+                <stop offset="0.5" stop-color="#F59E0B"/>
+                <stop offset="1" stop-color="#D97706"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="balance-num balance-display">0</span>
+        </div>
+        <div class="balance-usd">≈ <span class="balance-usd-val">$0.00 USD</span></div>
+
+        <div class="balance-stats-grid">
+          <div class="stat-item">
+            <div class="stat-icon-wrapper stat-icon-green">
+              <span>↗</span>
+            </div>
+            <div class="stat-data">
+              <span class="stat-label">Today's Earnings</span>
+              <span id="today-earned-val" class="stat-val">+0</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-icon-wrapper stat-icon-blue">
+              <span>▶</span>
+            </div>
+            <div class="stat-data">
+              <span class="stat-label">Ads Watched</span>
+              <span id="ads-watched-val" class="stat-val">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary Watch Ad & Earn CTA -->
+      <div class="rewarded-ad-cta-card">
+        <div class="rewarded-cta-header">
+          <span class="ad-badge ad-badge-ready rewarded-status-badge">● AdMob Ready</span>
+          <span class="reward-tag">+200 Coins</span>
+        </div>
+        <div class="rewarded-cta-body">
+          <h3>Watch Ad &amp; Earn 200 Coins</h3>
+          <p>Watch official Google AdMob sponsored video to unlock an immediate verified coin reward.</p>
+          <button class="btn-primary-reward btn-watch-ad-cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <span>Watch Ad &amp; Earn 200 Coins</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Actions Grid -->
+      <div class="section-header">
+        <span class="section-title">⚡ Quick Rewards</span>
+      </div>
+      <div class="quick-actions-grid">
+        <div class="quick-action-card" id="quick-action-daily">
+          <div class="quick-icon-box qb-gold">🎁</div>
+          <span class="quick-action-label">Daily Bonus</span>
+        </div>
+        <div class="quick-action-card" onclick="document.querySelector('[data-tab=rewards]').click()">
+          <div class="quick-icon-box qb-purple">🎰</div>
+          <span class="quick-action-label">Spin &amp; Win</span>
+        </div>
+        <div class="quick-action-card" onclick="document.querySelector('[data-tab=earn]').click()">
+          <div class="quick-icon-box qb-blue">📋</div>
+          <span class="quick-action-label">Tasks</span>
+        </div>
+        <div class="quick-action-card" onclick="document.querySelector('[data-tab=wallet]').click()">
+          <div class="quick-icon-box qb-green">💳</div>
+          <span class="quick-action-label">Withdraw</span>
+        </div>
+      </div>
+
+      <!-- Today's Goal Progress -->
+      <div class="goal-card">
+        <div class="goal-header">
+          <div class="goal-info">
+            <span class="goal-title">Today’s Goal</span>
+            <span class="goal-subtitle">Watch 10 ads for +300 Bonus Coins</span>
+          </div>
+          <span id="goal-count-label" class="goal-count">0 / 10 Ads</span>
+        </div>
+        <div class="progress-track">
+          <div id="goal-progress-bar" class="progress-bar" style="width: 0%;"></div>
+        </div>
+        <div class="goal-footer">
+          <span>Target: 10 daily views</span>
+          <span>Booster: +300 XP</span>
+        </div>
+      </div>
+
+      <!-- Banner Ad Slot -->
+      <div class="banner-ad-container">
+        <div class="banner-ad-label">
+          <span>Google AdMob Banner</span>
+          <span class="banner-ad-status-pill">● Active</span>
+        </div>
+        <div style="font-size: 11px; color: #94A3B8;">Adaptive Banner (320x50 / Smart Banner)</div>
+      </div>
+
+      <!-- Recent Transactions Snippet -->
+      <div class="section-header">
+        <span class="section-title">⏱ Recent Activity</span>
+        <span class="section-link" onclick="document.querySelector('[data-tab=wallet]').click()">See All</span>
+      </div>
+      <div id="tx-list-container">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 2: EARN
+         ========================================== -->
+    <div id="page-earn" class="page">
+      <div class="section-header" style="margin-top: 8px;">
+        <span class="section-title" style="font-size: 18px;">🎯 Earn King ♔ Offers</span>
+      </div>
+
+      <!-- Daily Login Bonus Card (Earn Page) -->
+      <div id="earn-daily-bonus-card" class="daily-login-bonus-card">
+        <div class="daily-bonus-left">
+          <div class="daily-bonus-icon">🎁</div>
+          <div>
+            <div class="daily-bonus-title">Daily Login Reward</div>
+            <div class="daily-bonus-sub" id="earn-daily-bonus-sub">Check in daily to claim +50 free coins!</div>
+          </div>
+        </div>
+        <button id="btn-claim-daily-earn" class="btn-claim-bonus">Claim +50</button>
+      </div>
+
+      <!-- Rewarded Ad Card -->
+      <div class="rewarded-ad-cta-card">
+        <div class="rewarded-cta-header">
+          <span class="ad-badge ad-badge-ready rewarded-status-badge">● AdMob Ready</span>
+          <span class="reward-tag">+200 Coins</span>
+        </div>
+        <div class="rewarded-cta-body">
+          <h3>Rewarded Video Ad</h3>
+          <p>Watch a full short video ad to instantly receive 200 coins directly to your balance.</p>
+          <button class="btn-primary-reward btn-watch-ad-cta">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <span>Watch Ad &amp; Earn 200 Coins</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Interstitial Ad Card -->
+      <div class="rewarded-ad-cta-card" style="border-color: rgba(148, 163, 184, 0.2);">
+        <div class="rewarded-cta-header">
+          <span id="interstitial-status-badge" class="ad-badge" style="background: rgba(59, 130, 246, 0.15); color: #60A5FA;">● Ready</span>
+          <span style="font-size: 11px; color: #94A3B8;">Support Developer</span>
+        </div>
+        <div class="rewarded-cta-body">
+          <h3>Show Interstitial Ad</h3>
+          <p>Displays an interstitial full-screen transition advertisement. Note: Interstitial ads do not reward coins.</p>
+          <button class="btn-secondary-ad btn-show-interstitial-cta">
+            <span>Show Interstitial Ad</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Daily Tasks -->
+      <div class="section-header" style="margin-top: 14px;">
+        <span class="section-title">📋 Daily Tasks</span>
+      </div>
+      <div class="task-item">
+        <div class="task-left">
+          <div class="task-icon-box">📺</div>
+          <div class="task-details">
+            <span class="task-title">Watch 3 Video Ads</span>
+            <span class="task-reward-chip">★ +100 Coins</span>
+          </div>
+        </div>
+        <button class="btn-claim task-claim-btn" data-task="Watch 3 Video Ads" data-reward="100">Claim</button>
+      </div>
+
+      <div class="task-item">
+        <div class="task-left">
+          <div class="task-icon-box">🔥</div>
+          <div class="task-details">
+            <span class="task-title">Watch 5 Video Ads</span>
+            <span class="task-reward-chip">★ +200 Coins</span>
+          </div>
+        </div>
+        <button class="btn-claim task-claim-btn" data-task="Watch 5 Video Ads" data-reward="200">Claim</button>
+      </div>
+
+      <div class="task-item">
+        <div class="task-left">
+          <div class="task-icon-box">👑</div>
+          <div class="task-details">
+            <span class="task-title">Earn King Master (10 Ads)</span>
+            <span class="task-reward-chip">★ +500 Coins</span>
+          </div>
+        </div>
+        <button class="btn-claim task-claim-btn" data-task="Earn King Master" data-reward="500">Claim</button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 3: REWARDS (Lucky Spin Wheel)
+         ========================================== -->
+    <div id="page-rewards" class="page">
+      <div class="section-header" style="margin-top: 8px;">
+        <span class="section-title" style="font-size: 18px;">🎰 Lucky Spin Wheel</span>
+        <span class="reward-tag">Win up to 500 Coins</span>
+      </div>
+
+      <div class="spin-container">
+        <div class="spin-wheel-card">
+          <div class="wheel-pointer">▼</div>
+          <canvas id="wheel-canvas" width="280" height="280"></canvas>
+        </div>
+
+        <button id="btn-spin-wheel" class="btn-spin">
+          <span>SPIN &amp; WIN</span>
+        </button>
+        <p style="font-size: 12px; color: #94A3B8; text-align: center; margin-top: 10px;">
+          Each spin guarantees coin rewards!
+        </p>
+      </div>
+
+      <!-- Scratch Card Offer -->
+      <div class="scratch-card-box" style="margin-top: 24px; background: var(--bg-card); border-radius: var(--radius-lg); padding: 18px; border: 1px solid var(--border-color); text-align: center;">
+        <span style="font-size: 32px; display: block; margin-bottom: 6px;">🎫</span>
+        <h4 style="font-size: 16px; font-weight: 800; color: #fff; margin-bottom: 4px;">Lucky Scratch Card</h4>
+        <p style="font-size: 12px; color: #94A3B8; margin-bottom: 14px;">Scratch &amp; reveal hidden bonus multipliers.</p>
+        <button id="btn-scratch-card" class="btn-primary-reward" style="max-width: 220px; margin: 0 auto; padding: 10px;">
+          Scratch Card (+75 Coins)
+        </button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 4: WALLET & REDEEM
+         ========================================== -->
+    <div id="page-wallet" class="page">
+      <div class="balance-hero-card" style="margin-top: 8px;">
+        <div class="balance-hero-top">
+          <span class="balance-title">Available Payout Balance</span>
+          <span class="conversion-pill">Ready to Cash Out</span>
+        </div>
+        <div class="balance-amount-row">
+          <span class="balance-num balance-display">0</span>
+          <span style="font-size: 18px; font-weight: 800; color: #F59E0B; margin-left: 8px;">Coins</span>
+        </div>
+        <div class="balance-usd">Cash Value: <span class="balance-usd-val">$0.00 USD</span></div>
+      </div>
+
+      <!-- Withdraw Methods -->
+      <div class="section-header">
+        <span class="section-title">💳 Select Withdrawal Method</span>
+      </div>
+      <div class="payout-methods-grid">
+        <div class="payout-method-card active" data-method="bKash">
+          <div class="payout-method-icon">📱</div>
+          <span class="payout-method-name">bKash</span>
+          <span class="payout-method-rate">Min: 2,000</span>
+        </div>
+        <div class="payout-method-card" data-method="Nagad">
+          <div class="payout-method-icon">⚡</div>
+          <span class="payout-method-name">Nagad</span>
+          <span class="payout-method-rate">Min: 2,000</span>
+        </div>
+        <div class="payout-method-card" data-method="PayPal">
+          <div class="payout-method-icon">🅿️</div>
+          <span class="payout-method-name">PayPal</span>
+          <span class="payout-method-rate">Min: 5,000</span>
+        </div>
+        <div class="payout-method-card" data-method="Crypto">
+          <div class="payout-method-icon">₿</div>
+          <span class="payout-method-name">USDT</span>
+          <span class="payout-method-rate">Min: 10,000</span>
+        </div>
+      </div>
+
+      <!-- Withdraw Form -->
+      <div class="withdraw-form-card">
+        <div class="form-group">
+          <label class="input-label">Account / Phone Number / Wallet</label>
+          <input type="text" id="payout-account-input" class="custom-input" placeholder="e.g. 01700000000 or email@domain.com">
+        </div>
+        <div class="form-group">
+          <label class="input-label">Coin Amount (Min 2,000 Coins)</label>
+          <input type="number" id="payout-amount-input" class="custom-input" placeholder="e.g. 2000" value="2000">
+        </div>
+        <button id="btn-submit-withdraw" class="btn-withdraw-action">
+          Withdraw Now
+        </button>
+      </div>
+
+      <!-- Banner Ad Slot -->
+      <div class="banner-ad-container">
+        <div class="banner-ad-label">
+          <span>Google AdMob Banner</span>
+          <span class="banner-ad-status-pill">● Active</span>
+        </div>
+        <div style="font-size: 11px; color: #94A3B8;">Official AdMob Banner Ad SDK</div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         PAGE 5: PROFILE
+         ========================================== -->
+    <div id="page-profile" class="page">
+      <div class="profile-hero">
+        <div class="profile-avatar-large" id="profile-avatar">EK</div>
+        <h2 class="profile-name-large" id="profile-name">Earn King ♔</h2>
+        <div id="profile-email-badge" style="font-size: 12px; color: #94A3B8; margin-top: 2px;">guest@earnking.app</div>
+        <div id="profile-user-id" class="profile-user-id">#EK-1001</div>
+        <div class="profile-level-badge">
+          <span>♔</span>
+          <span id="profile-level-text">Crown Earner • Level 1</span>
+        </div>
+
+        <button id="profile-auth-action-btn" class="auth-submit-btn" style="max-width: 220px; margin: 14px auto 0 auto; padding: 10px; font-size: 13px;">
+          Log In / Sign Up
+        </button>
+      </div>
+
+      <!-- Lifetime Stats -->
+      <div class="balance-stats-grid" style="background: var(--bg-card); border-radius: var(--radius-lg); padding: 14px; margin-bottom: 20px; border: 1px solid var(--border-color);">
+        <div class="stat-item">
+          <div class="stat-icon-wrapper stat-icon-green">💰</div>
+          <div class="stat-data">
+            <span class="stat-label">Total Coins</span>
+            <span class="stat-val balance-display">0</span>
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-icon-wrapper stat-icon-blue">📺</div>
+          <div class="stat-data">
+            <span class="stat-label">Ads Watched</span>
+            <span id="profile-ads-watched" class="stat-val">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings & Options -->
+      <div class="settings-list">
+        <div class="settings-item" id="btn-claim-daily-profile">
+          <div class="settings-item-left">
+            <div class="settings-icon" style="color: #F59E0B;">🎁</div>
+            <span class="settings-label">Daily Login Bonus (+50)</span>
+          </div>
+          <span class="settings-item-right" id="profile-daily-bonus-status" style="color: var(--accent-green);">Claimable</span>
+        </div>
+
+        <div class="settings-item" onclick="alert('Firebase Cloud Security:\n- Firebase Auth & Cloud Firestore backend integration.\n- Coins server-validated before balance credit.\n- Daily Bonus claim enforced once per day per account.')">
+          <div class="settings-item-left">
+            <div class="settings-icon">🛡️</div>
+            <span class="settings-label">Firebase Auth &amp; Cloud Security</span>
+          </div>
+          <span class="settings-item-right" style="color: #60A5FA;">Active &gt;</span>
+        </div>
+
+        <div class="settings-item" onclick="alert('Google AdMob SDK Configuration:\n- App Open Ad: ca-app-pub-1989230444855050/5490132410\n- Rewarded Ad: ca-app-pub-1989230444855050/6643265773\n- Interstitial Ad: ca-app-pub-1989230444855050/1715017124\n- Banner Ad: ca-app-pub-1989230444855050/1908226040')">
+          <div class="settings-item-left">
+            <div class="settings-icon">⚙️</div>
+            <span class="settings-label">AdMob Units &amp; App Open Ad</span>
+          </div>
+          <span class="settings-item-right">&gt;</span>
+        </div>
+
+        <div id="btn-logout-item" class="settings-item" style="display: none;">
+          <div class="settings-item-left">
+            <div class="settings-icon" style="color: #EF4444;">🚪</div>
+            <span class="settings-label" style="color: #EF4444;">Log Out of Earn King</span>
+          </div>
+          <span class="settings-item-right" style="color: #EF4444;">Log Out</span>
+        </div>
+
+        <div id="btn-reset-demo" class="settings-item">
+          <div class="settings-item-left">
+            <div class="settings-icon" style="color: #94A3B8;">🔄</div>
+            <span class="settings-label" style="color: #94A3B8;">Reset Local Data Cache</span>
+          </div>
+          <span class="settings-item-right" style="color: #94A3B8;">Reset</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         FIXED BOTTOM NAVIGATION
+         ========================================== -->
+    <nav class="bottom-nav">
+      <div class="nav-item active" data-tab="home">
+        <span class="nav-indicator"></span>
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+      </div>
+      <div class="nav-item" data-tab="earn">
+        <span class="nav-indicator"></span>
+        <span class="nav-icon">🎯</span>
+        <span class="nav-label">Earn</span>
+      </div>
+      <div class="nav-item" data-tab="rewards">
+        <span class="nav-indicator"></span>
+        <span class="nav-icon">🎁</span>
+        <span class="nav-label">Rewards</span>
+      </div>
+      <div class="nav-item" data-tab="wallet">
+        <span class="nav-indicator"></span>
+        <span class="nav-icon">💳</span>
+        <span class="nav-label">Wallet</span>
+      </div>
+      <div class="nav-item" data-tab="profile">
+        <span class="nav-indicator"></span>
+        <span class="nav-icon">👤</span>
+        <span class="nav-label">Profile</span>
+      </div>
+    </nav>
+
+    <!-- ==========================================
+         CELEBRATION / ALERT MODAL
+         ========================================== -->
+    <div id="modal-overlay" class="modal-overlay">
+      <div class="modal-card">
+        <div id="modal-icon" class="celebration-icon">🎉</div>
+        <h3 id="modal-title" class="modal-title">Celebration!</h3>
+        <div id="modal-body" class="modal-body">Description text goes here.</div>
+        <button id="modal-close-btn" class="modal-btn">Continue</button>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         AUTHENTICATION MODAL (FIREBASE AUTH)
+         ========================================== -->
+    <div id="auth-modal-overlay" class="modal-overlay">
+      <div class="auth-modal-card">
+        <div class="auth-header">
+          <div class="auth-title">Earn King ♔</div>
+          <div class="auth-subtitle" id="auth-subtitle">Log in to save your coins and sync across devices</div>
+        </div>
+        <div class="auth-tabs">
+          <button id="tab-auth-login" class="auth-tab-btn active">Log In</button>
+          <button id="tab-auth-signup" class="auth-tab-btn">Sign Up</button>
+        </div>
+        <form id="auth-form" onsubmit="return false;">
+          <div id="auth-name-group" class="auth-form-group" style="display: none;">
+            <label style="font-size: 12px; color: #94A3B8;">Full Name</label>
+            <input type="text" id="auth-input-name" class="auth-input" placeholder="e.g. John Doe">
+          </div>
+          <div class="auth-form-group">
+            <label style="font-size: 12px; color: #94A3B8;">Email Address</label>
+            <input type="email" id="auth-input-email" class="auth-input" placeholder="user@example.com" required>
+          </div>
+          <div class="auth-form-group">
+            <label style="font-size: 12px; color: #94A3B8;">Password</label>
+            <input type="password" id="auth-input-password" class="auth-input" placeholder="Minimum 6 characters" required>
+          </div>
+          <button type="submit" id="auth-submit-btn" class="auth-submit-btn">Log In &amp; Enter</button>
+          <div id="auth-error-msg" class="auth-error-msg"></div>
+        </form>
+        <div style="margin-top: 14px; text-align: center;">
+          <button id="btn-auth-cancel" style="background: none; border: none; color: #94A3B8; font-size: 13px; cursor: pointer;">Continue as Guest</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="app-toast" class="toast-msg">Notification</div>
+
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

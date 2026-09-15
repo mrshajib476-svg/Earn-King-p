@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // User account and balance document
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      // In production, balance updates should be validated via Cloud Functions or Server App Check
+      allow create, update: if request.auth != null && request.auth.uid == userId;
+      allow delete: if false;
+
+      // User's private transaction ledger
+      match /transactions/{txId} {
+        allow read: if request.auth != null && request.auth.uid == userId;
+        allow create: if request.auth != null && request.auth.uid == userId;
+        allow update, delete: if false;
+      }
+    }
+
+    // Public app configuration (ad configurations, min withdrawal thresholds)
+    match /config/{document} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
